@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=0.5">
+
+<head>
+<title>Middara v1.1</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+<style>
+
+.nav-link.active {
+    color: #f73f6e !important;
+    background-color: transparent !important;
+    font-weight: bold;
+}
+.nav-link {
+    color: white !important;
+    font-weight: bold;
+}
+label {
+    color: white !important;
+    font-weight: bold;
+}
+.form-control {
+    color: white !important;
+    background-image: linear-gradient(to bottom, #000000, #311318, #5d1c1e) !important;
+}
+option {
+    background: rgba(0, 0, 0, 0.8);
+}
+.accordion-button:not(.collapsed) {
+    color: #f73f6e !important;
+    background-color: transparent !important;
+    font-weight: bold;
+}
+.accordion-button {
+    color: white !important;
+    background-color: transparent !important;
+    font-weight: bold;
+}
+.accordion-item {
+    background-color: transparent !important;
+    border-color: white;
+    border-style: solid;
+}
+.accordion-header {
+    border-color: #f73f6e;
+    border-style: none none double none;
+}
+textarea {
+    color: white !important;
+    background-color: transparent !important;
+}
+.btn-primary {
+    color: #f73f6e !important;
+    border-color: #f73f6e !important;
+    background-color: transparent !important;
+}
+.btn-info {
+    color: yellow !important;
+    border-color: yellow !important;
+    background-color: transparent !important;
+}
+.btn-success {
+    color: lime !important;
+    border-color: lime !important;
+    background-color: transparent !important;
+}
+.btn-danger {
+    color: red !important;
+    border-color: red !important;
+    background-color: transparent !important;
+}
+
+body {
+    padding: 5px;
+    background-color: black;
+}
+div {
+    padding: 5px;
+}
+.scrolling {
+    background-image: linear-gradient(to bottom, #000000, #311318, #5d1c1e, #862a1a, #aa4200);
+    overflow: auto;
+    height: 100vh;
+}
+.card {
+    margin: 5px;
+    float: left;
+    zoom: 0.6;
+}
+.board {
+    overflow: hidden; 
+}
+.divCard {
+    float: left; 
+    overflow: hidden; 
+}
+.ctrlCard {
+    float: left; 
+    overflow: hidden; 
+    width: 50px;
+}
+
+.cardSmall {
+    width: 248px;
+    height: 378px;
+}
+.cardMedium {
+    width: 348px;
+    height: 538px;
+}
+.cardLarge {
+    width: 449px;
+    height: 744px;
+}
+.cardTarot {
+    width: 449px;
+    height: 744px;
+}
+.cardVarian {
+    width: 413px;
+    height: 709px;
+}
+.cardDiscipline {
+    width: 378px;
+    height: 248px;
+}
+
+.mundaneF {
+    background: url('TTS Cards/Item 01 Mundane Face.jpg') no-repeat;
+    border: 10px;
+    border-style: hidden hidden hidden solid;
+    border-color: blueviolet;
+}
+.mundaneB {
+    background: url('TTS Cards/Item 01 Mundane Back.jpg') no-repeat;
+    border: 10px;
+    border-style: hidden hidden hidden solid;
+    border-color: blueviolet;
+}
+.commonF {
+    background: url('TTS Cards/Item 02 Common Face.jpg') no-repeat; 
+    border: 10px;
+    border-style: hidden hidden hidden solid;
+    border-color: cyan; 
+}
+.commonB {
+    background: url('TTS Cards/Item 02 Common Back.jpg') no-repeat;
+    border: 10px;
+    border-style: hidden hidden hidden solid;
+    border-color: cyan;
+}
+.uncommonF {
+    background: url('TTS Cards/Item 03 Uncommon Face.jpg') no-repeat; 
+    border: 10px;
+    border-style: hidden hidden hidden solid;
+    border-color: darkorange; 
+}
+.uncommonB {
+    background: url('TTS Cards/Item 03 Uncommon Back.jpg') no-repeat;
+    border: 10px;
+    border-style: hidden hidden hidden solid;
+    border-color: darkorange;
+}
+.rareF {
+    background: url('TTS Cards/Item 04 Rare Face.jpg') no-repeat;
+    border: 10px;
+    border-style: hidden hidden hidden solid;
+    border-color: chartreuse;
+}
+.rareB {
+    background: url('TTS Cards/Item 04 Rare Back.jpg') no-repeat;
+    border: 10px;
+    border-style: hidden hidden hidden solid;
+    border-color: chartreuse;
+}
+.uniqueF {
+    background: url('TTS Cards/Item 05 Unique Loot Face.jpg') no-repeat;
+    border: 10px;
+    border-style: hidden hidden hidden solid;
+    border-color: crimson;
+}
+.uniqueB {
+    background: url('TTS Cards/Item 05 Unique Loot Back.jpg') no-repeat;
+    border: 10px;
+    border-style: hidden hidden hidden solid;
+    border-color: crimson;
+}
+.lootF {
+    background: url('TTS Cards/Item 05 Unique Loot Face.jpg') no-repeat;
+    border: 10px;
+    border-style: hidden hidden hidden solid;
+    border-color: darkblue;
+}
+.lootB {
+    background: url('TTS Cards/Item 05 Unique Loot Back.jpg') no-repeat;
+    border: 10px;
+    border-style: hidden hidden hidden solid;
+    border-color: darkblue;
+}
+
+.assemblage {
+    background: url('TTS Cards/Discipline Assemblage.jpg') no-repeat;
+}
+.cruor {
+    background: url('TTS Cards/Discipline Cruor.jpg') no-repeat;
+}
+.martial {
+    background: url('TTS Cards/Discipline Martial.jpg') no-repeat;
+}
+.sanctus {
+    background: url('TTS Cards/Discipline Sanctus.jpg') no-repeat;
+}
+.subterfuge {
+    background: url('TTS Cards/Discipline Subterfuge.jpg') no-repeat;
+}
+
+.upgrade {
+    background: url('TTS Cards/Item Upgrade.jpg') no-repeat;
+}
+
+.familiarF {
+    background: url('TTS Cards/Familiar Front.jpg') no-repeat;
+}
+.familiarB {
+    background: url('TTS Cards/Familiar Back.jpg') no-repeat;
+}
+.varianF {
+    background: url('TTS Cards/Variant Face.png') no-repeat;
+}
+.varianB {
+    background: url('TTS Cards/Variant Back.png') no-repeat;
+}
+.tarotF {
+    background: url('TTS Cards/Tarot Face.jpg') no-repeat;
+}
+.tarotB {
+    background: url('TTS Cards/Tarot Back.jpg') no-repeat;
+}
+
+</style>
+</head>
+<body>
+
+<ul class='nav nav-tabs' role='tablist'>
+    <li class='nav-item' role='presentation'>
+        <button class='nav-link active' id='card-tab' data-bs-toggle='tab' data-bs-target='#tabCard' type='button' role='tab' aria-controls='card' aria-selected='true'>
+            <i class='bi-card-heading'></i> Cards</button>
+    </li>
+    <li class='nav-item' role='presentation'>
+        <button class='nav-link' id='bag-tab' data-bs-toggle='tab' data-bs-target='#tabBag' type='button' role='tab' aria-controls='bag' aria-selected='false'>
+            <i class='bi-briefcase'></i> Bag</button>
+    </li>
+    <li class='nav-item' role='presentation'>
+        <button class='nav-link' id='about-tab' data-bs-toggle='tab' data-bs-target='#tabAbout' type='button' role='tab' aria-controls='about' aria-selected='false'>
+            <i class='bi-info-circle'></i> v0.23.0</button>
+    </li>
+</ul>
+<div class='tab-content'>
+    <div id='tabCard' class='tab-pane fade show active' role='tabpanel' aria-labelledby='card-tab'>
+        <div id='control' class='row'>
+            <div id='hideControl' class='col-sm-12 row'>
+                <div class='form-group col-sm-3'>
+                    <label for='cardSize'>Card Size</label>
+                    <div>
+                        <select class='form-control' name='cardSize' id='cardSize' onchange='selectChange(1)'>
+                        </select>
+                    </div>
+                    <div>
+                        <select class='form-control' name='flipCard' id='flipCard'>
+                            <option value='F'>Front</option>
+                            <option value='B'>Back</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class='form-group col-sm-3'>
+                    <label for='cardCategory'>Category</label>
+                    <div>
+                        <select class='form-control' name='cardCategory' id='cardCategory' onchange='selectChange(2)'>
+                            <option value=''>All</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class='form-group col-sm-3'>
+                    <label for='cardType'>Type</label>
+                    <div>
+                        <select class='form-control' name='cardType' id='cardType'>
+                            <option value=''>All</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class='form-group col-sm-3'>
+                    <label for='cardRarity'>Rarity / Level</label>
+                    <div>
+                        <select class='form-control' name='cardRarity' id='cardRarity'>
+                            <option value=''>All</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class='col-sm-12'>
+                <button class='btn btn-primary' onclick='cardSearching()'>Search</button>
+                <button id='btnHideControl' class='btn btn-primary' onclick='hideControl()'>Hide</button>
+            </div>
+        </div>
+        <div class='scrolling'>
+            <div id='item' class='board'>
+            </div>
+        </div>
+    </div>    
+    <div id='tabBag' class='tab-pane fade' role='tabpanel' aria-labelledby='bag-tab'>
+        <div class='accordion'>
+            <div class='accordion-item'>
+                <h2 class='accordion-header' id='accord1'>
+                    <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#accordCollapse1' aria-expanded='true' aria-controls='accordCollapse1'>
+                        Discipline
+                    </button>
+                </h2>
+                <div id='accordCollapse1' class='accordion-collapse collapse show' aria-labelledby='accord1'>
+                    <div id='bagDiscipline' class='accordion-body board'>
+                    </div>
+                </div>
+            </div>
+            <div class='accordion-item'>
+                <h2 class='accordion-header' id='accord2'>
+                    <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#accordCollapse2' aria-expanded='false' aria-controls='accordCollapse2'>
+                        Upgrade
+                    </button>
+                </h2>
+                <div id='accordCollapse2' class='accordion-collapse collapse show' aria-labelledby='accord2'>
+                    <div id='bagUpgrade' class='accordion-body board'>
+                    </div>
+                </div>
+            </div>
+            <div class='accordion-item'>
+                <h2 class='accordion-header' id='accord3'>
+                    <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#accordCollapse3' aria-expanded='false' aria-controls='accordCollapse3'>
+                        Item
+                    </button>
+                </h2>
+                <div id='accordCollapse3' class='accordion-collapse collapse show' aria-labelledby='accord3'>
+                    <div id='bagItem' class='accordion-body board'>
+                    </div>
+                </div>
+            </div>
+            
+            <div class='accordion-item'>
+                <h2 class='accordion-header' id='accord4'>
+                    <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#accordCollapse4' aria-expanded='false' aria-controls='accordCollapse4'>
+                        Other
+                    </button>
+                </h2>
+                <div id='accordCollapse4' class='accordion-collapse collapse show' aria-labelledby='accord4'>
+                    <div id='bagOther' class='accordion-body board'>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id='tabAbout' class='tab-pane fade' role='tabpanel' aria-labelledby='about-tab'>
+        <button class='btn btn-primary' onclick='f_export()'>Export</button>
+        <button class='btn btn-primary' onclick='f_copy()'>Copy</button>
+        <button class='btn btn-primary' onclick='f_clear()'>Clear</button>
+        <button class='btn btn-primary' onclick='f_import()'>Import</button>
+        <br /><br />
+        <textarea id='taData' rows='10' style='width: 100%'></textarea>
+    </div>
+</div>
+
+</body>
+<script>
+    var cardPlace = $('#item');
+    var bag = {}
+
+    var cardSize = ['Small', 'Medium', 'Large', 'Tarot', 'Varian'];
+    var cardCategory = [
+        {size:'Small', category:'Discipline'},
+        {size:'Small', category:'Familiar'},
+        {size:'Small', category:'Item Upgrade'},
+        {size:'Medium', category:'Items'},
+        {size:'Medium', category:'Loots'},
+        {size:'Medium', category:'Unique Items'},
+        {size:'Large', category:'Adventurers'},
+        {size:'Tarot', category:'Abraxis'},
+        {size:'Tarot', category:'Exalted Esper'},
+        {size:'Tarot', category:'Quick Reference'},
+    ];
+    var cardRarity = [
+        {category:'Items', rarity:'Mundane'},
+        {category:'Items', rarity:'Common'},
+        {category:'Items', rarity:'Uncommon'},
+        {category:'Items', rarity:'Rare'},
+        {category:'Unique Items', rarity:'Mundane'},
+        {category:'Unique Items', rarity:'Common'},
+        {category:'Unique Items', rarity:'Uncommon'},
+        {category:'Unique Items', rarity:'Rare'},
+        {category:'Discipline', rarity:'1'},
+        {category:'Discipline', rarity:'2'},
+        {category:'Discipline', rarity:'3'},
+        {category:'Discipline', rarity:'4'},
+    ];
+    var cardType = [
+        {category:'Items', type:'Weapon'},
+        {category:'Items', type:'Relic'},
+        {category:'Items', type:'Accessory'},
+        {category:'Items', type:'Armor'},
+        {category:'Items', type:'Core'},
+        {category:'Items', type:'Consumable'},
+        {category:'Loots', type:'Weapon'},
+        {category:'Loots', type:'Relic'},
+        {category:'Loots', type:'Accessory'},
+        {category:'Loots', type:'Armor'},
+        {category:'Loots', type:'Consumable'},
+        {category:'Unique Items', type:'Weapon'},
+        {category:'Unique Items', type:'Accessory'},
+        {category:'Unique Items', type:'Armor'},
+        {category:'Unique Items', type:'Core'},
+        {category:'Item Upgrade', type:'Weapon'},
+        {category:'Item Upgrade', type:'Armor'},
+        {category:'Item Upgrade', type:'Core'},
+        {category:'Item Upgrade', type:'Universal'},
+        {category:'Discipline', type:'Assemblage'},
+        {category:'Discipline', type:'Cruor'},
+        {category:'Discipline', type:'Martial'},
+        {category:'Discipline', type:'Sanctus'},
+        {category:'Discipline', type:'Subterfuge'},
+    ];
+
+    function getBagCategoty(_category) {
+        var tempBagCategory = ''
+        switch(_category) {
+            case 'Discipline': tempBagCategory = 'Discipline';
+                break;
+            case 'Familiar': tempBagCategory = 'Other';
+                break;
+            case 'Item Upgrade': tempBagCategory = 'Upgrade';
+                break;
+            case 'Items': tempBagCategory = 'Item';
+                break;
+            case 'Unique Items': tempBagCategory = 'Item';
+                break;
+            case 'Adventurers': tempBagCategory = 'Other';
+                break;
+            case 'Abraxis': tempBagCategory = 'Other';
+                break;
+            case 'Exalted Esper': tempBagCategory = 'Other';
+                break;
+            case 'Quick Reference': tempBagCategory = 'Other';
+                break;
+            default: tempBagCategory = 'Other';
+                break;
+        }
+
+        return tempBagCategory;
+    }
+
+    cardSize.forEach(el => {
+        $('#cardSize').append('<option value="' + el.split(' ').join('') + '">' + el + '</option>');
+    });
+    cardCategory.forEach(el => {
+        $('#cardCategory').append('<option class="oc_category oc_' + el.size.split(' ').join('') + '" value="' + el.category.split(' ').join('') + '">' + el.category + '</option>');
+    });
+    cardType.forEach(el => {
+        $('#cardType').append('<option class="ot_type ot_' + el.category.split(' ').join('') + '" value="' + el.type.split(' ').join('') + '">' + el.type + '</option>');
+    });
+    cardRarity.forEach(el => {
+        $('#cardRarity').append('<option class="or_rarity or_' + el.category.split(' ').join('') + '" value="' + el.rarity.toString().split(' ').join('') + '">' + el.rarity.toString() + '</option>');
+    });
+
+    $('option.oc_category').hide();
+    $('option.oc_Small').show();
+    $('option.ot_type').hide();
+    $('option.or_rarity').hide();
+
+    $(document).ready(function() {
+        emptyBag();
+        cardPlace.empty();
+
+        $('.scrolling').css('height', 'calc(100vh - ' + ($('#control').height() + 85) +'px)');
+    });
+
+    function hideControl() {
+        toggleButton('hideControl', $('#btnHideControl'), 'Show', 'Hide')
+        $('.scrolling').css('height', 'calc(100vh - ' + ($('#control').height() + 85) +'px)');
+    }
+
+    function selectChange(_n) {
+        if (_n == 1) { //size change
+            var tempSize = $('#cardSize').find(':selected').val();
+            $('#cardCategory').get(0).selectedIndex = 0;
+            $('#cardType').get(0).selectedIndex = 0;
+            $('#cardRarity').get(0).selectedIndex = 0;
+
+            $('option.oc_category').hide();
+            $('option.oc_' + tempSize).show();
+
+            $('option.or_rarity').hide();
+            $('option.ot_type').hide();
+            if (tempSize == 'Medium') {
+                $('option.or_Items').show();
+                $('option.ot_Items').show();
+            }
+        } else if (_n == 2) { //category change
+            var tempSize = $('#cardSize').find(':selected').val();
+            var tempCategory = $('#cardCategory').find(':selected').val();
+            $('#cardType').get(0).selectedIndex = 0;
+            $('#cardRarity').get(0).selectedIndex = 0;
+            
+            $('option.ot_type').hide();
+            $('option.or_rarity').hide();
+            if (tempSize == 'Medium' && tempCategory == '') {
+                $('option.ot_Items').show();
+                $('option.or_Items').show();
+            } else {
+                $('option.ot_' + tempCategory).show();
+                $('option.or_' + tempCategory).show();
+            }
+        } 
+    }
+
+    function cardSearching() {
+        cardPlace.empty();
+
+        var tempSize = $('#cardSize').find(':selected').val();
+        var tempCategory = $('#cardCategory').find(':selected').val();
+        var tempType = $('#cardType').find(':selected').val();
+        var tempRarity = $('#cardRarity').find(':selected').val();
+        var tempFlip = $('#flipCard').find(':selected').val();
+
+        var tempCards = getCards(tempSize, tempCategory, tempType, tempRarity);
+        if (tempCategory == 'Discipline') {
+            tempCards = sorting(tempCards, 'name', true);
+            tempCards = sorting(tempCards, 'rarity', true);
+            tempCards = sorting(tempCards, 'type', true);
+            tempCards = sorting(tempCards, 'category', true);
+        }
+        // console.log(tempSize + ',' + tempCategory + ',' + tempType + ',' + tempRarity + ',' + tempFlip);
+        // console.log(tempCards);
+        creatingUI(tempCards, tempFlip, false, cardPlace);
+    }
+
+    function creatingUI(_cards, _flip, _bag, _parent) {
+        var id = 0;
+        _cards.forEach(el => {
+            id = el.id.toString() + parseInt(Math.random()*1000).toString();
+
+            var tempClassImg = el.class + (el.flip ? _flip : '');
+            var tempClassFlip = el.class + '#' + (el.flip ? _flip : '');
+
+            var tempCardClass = (el.category == 'Discipline' ? el.category : el.size);
+
+            var $img = $('<img>', {
+                id: id, 
+                'class': 'card card' + tempCardClass + ' ' + tempClassImg, 
+                'data-card': tempClassFlip, 
+                'onclick': 'clickCard(' + id + ')'}
+            );
+            $img.css('background-position', (-el.width * el.positionX).toString() +'px '+ (-el.height * el.positionY).toString() +'px');
+            
+            var $div = $('<div>', {
+                id: 'div' + id,
+                'class': 'divCard'
+            });
+            var $control = $('<div>', {
+                id: 'ctrl' + id,
+                'class': 'ctrlCard'
+            });
+            $control.hide();
+            
+            if (el.flip) {
+                var $btnFlip = $('<button>', {
+                    'class': 'btn btn-info',
+                    'text': '',
+                    'height': '50px',
+                    'onclick': 'flipCard(' + id + ')'}
+                );
+                $btnFlip.append('<i class="bi-arrow-clockwise"></i>');
+                $control.append($btnFlip);
+            }
+
+            var tempBagCategory = getBagCategoty(el.category);
+            if (_bag) {
+                var $btnDel = $('<button>', {
+                    'class': 'btn btn-danger',
+                    'text': '',
+                    'height': '50px',
+                    'onclick': 'deleteCard(' + id + ', "' + tempBagCategory + '")'}
+                );
+                $btnDel.append('<i class="bi-trash"></i>');
+                $control.append($btnDel);
+            } else {
+                var $btnAdd = $('<button>', {
+                    'class': 'btn btn-success',
+                    'text': '',
+                    'height': '50px',
+                    'onclick': 'addCards(' + el.id + ', "' + tempBagCategory + '")'}
+                ); 
+                $btnAdd.append('<i class="bi-plus"></i>');
+                $control.append($btnAdd);
+            }
+
+            $div.append($img);
+            $div.append($control);
+            _parent.append($div);
+        });
+
+        return id;
+    }
+
+    function clickCard(id) {
+        $('#ctrl' + id).toggle();
+    }
+
+    function flipCard (id) {
+        var el = $('#' + id);
+        var data = el.data('card').split('#');
+        if (data[1] == 'F') {
+            el.data('card', data[0] + '#B');
+            el.removeClass(data[0] + data[1]).addClass(data[0] + 'B');
+        } else {
+            el.data('card', data[0] + '#F');
+            el.removeClass(data[0] + data[1]).addClass(data[0] + 'F');
+        }
+    }
+
+    function addCards (_id, _bagCategory) {
+        var tempCard = getCardbyID(allCards, _id);
+        var tempID = creatingUI(tempCard, 'F', true, $('#bag' + _bagCategory));
+        bag[_bagCategory].push({id: _id, data: tempID});
+    }
+
+    function deleteCard (_id, _bagCategory) {
+        $('#div' + _id).remove();
+        $.each(bag[_bagCategory], function( key, value ) {
+            if (value.data == _id) {
+                bag[_bagCategory].splice(key, 1);
+                return false;
+            }
+        });
+    }
+
+    function getCards(_size, _category, _type, _rarity) {
+        return allCards.filter(function(data){
+            return (data.size.split(' ').join('') == _size)
+            && (data.category.split(' ').join('') == _category || _category == '')
+            && (data.type.split(' ').join('') == _type || _type == '')
+            && (data.rarity.toString().split(' ').join('') == _rarity || _rarity == '')
+        });
+    }
+
+    function getCardbyID(tempArr, id) {
+        return tempArr.filter(
+            function(data){return data.id == id}
+        );
+    }
+
+    function toggleButton(_id, _el, _hide, _show) {
+        $('#' + _id).toggle();
+        $(_el).text(($('#' + _id).is(':visible') ? 
+            $(_el).text().replace(_hide, _show)
+            : $(_el).text().replace(_show, _hide))) 
+    }
+
+    function sorting(arr, prop, asc) {
+        arr.sort(function(a, b) {
+            if (asc) {
+                return (a[prop] > b[prop]) ? 1 : ((a[prop] < b[prop]) ? -1 : 0);
+            } else {
+                return (b[prop] > a[prop]) ? 1 : ((b[prop] < a[prop]) ? -1 : 0);
+            }
+        });
+        return arr;
+    }
+
+    function emptyBag() {
+        bag = {Discipline:[], Item:[], Upgrade:[], Other:[]};
+
+        $('#bagItem').empty();
+        $('#bagDiscipline').empty();
+        $('#bagUpgrade').empty();
+        $('#bagOther').empty();
+    }
+
+    function f_export() {
+        $('#taData').val(JSON.stringify(bag));
+    }
+
+    function f_import() {
+        var tempBag = JSON.parse($('#taData').val().toString());
+        emptyBag();
+
+        $.each(tempBag.Item, function( key, value ) {
+            addCards (value.id, 'Item');
+        });
+        $.each(tempBag.Discipline, function( key, value ) {
+            addCards (value.id, 'Discipline');
+        });
+        $.each(tempBag.Upgrade, function( key, value ) {
+            addCards (value.id, 'Upgrade');
+        });
+        $.each(tempBag.Other, function( key, value ) {
+            addCards (value.id, 'Other');
+        });
+    }
+
+    function f_copy() {
+        $('#taData').select();
+        document.execCommand('copy');
+    }
+
+    function f_clear() {
+        $('#taData').val('');
+    }
+
+    var allCards = [
+                
+        {id: 1101, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Mundane', positionX: 0, positionY: 0, width: 348, height: 538, name:''},
+        {id: 1102, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Mundane', positionX: 1, positionY: 0, width: 348, height: 538, name:''},
+        {id: 1103, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Mundane', positionX: 2, positionY: 0, width: 348, height: 538, name:''},
+        {id: 1104, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Mundane', positionX: 3, positionY: 0, width: 348, height: 538, name:''},
+        {id: 1105, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Mundane', positionX: 4, positionY: 0, width: 348, height: 538, name:''},
+        {id: 1106, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Mundane', positionX: 5, positionY: 0, width: 348, height: 538, name:''},
+        {id: 1107, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Mundane', positionX: 6, positionY: 0, width: 348, height: 538, name:''},
+        {id: 1108, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Mundane', positionX: 7, positionY: 0, width: 348, height: 538, name:''},
+        {id: 1109, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Mundane', positionX: 8, positionY: 0, width: 348, height: 538, name:''},
+        {id: 1110, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Mundane', positionX: 9, positionY: 0, width: 348, height: 538, name:''},
+        {id: 1111, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Mundane', positionX: 0, positionY: 1, width: 348, height: 538, name:''},
+        {id: 1112, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Mundane', positionX: 1, positionY: 1, width: 348, height: 538, name:''},
+        {id: 1113, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Mundane', positionX: 2, positionY: 1, width: 348, height: 538, name:''},
+        {id: 1114, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Mundane', positionX: 3, positionY: 1, width: 348, height: 538, name:''},
+        {id: 1115, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Mundane', positionX: 4, positionY: 1, width: 348, height: 538, name:''},
+        {id: 1116, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Mundane', positionX: 5, positionY: 1, width: 348, height: 538, name:''},
+        {id: 1117, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Mundane', positionX: 6, positionY: 1, width: 348, height: 538, name:''},
+        {id: 1118, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Mundane', positionX: 7, positionY: 1, width: 348, height: 538, name:''},
+        {id: 1119, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Mundane', positionX: 8, positionY: 1, width: 348, height: 538, name:''},
+        {id: 1120, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Mundane', positionX: 9, positionY: 1, width: 348, height: 538, name:''},
+        {id: 1201, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Mundane', positionX: 0, positionY: 2, width: 348, height: 538, name:''},
+        {id: 1202, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Mundane', positionX: 1, positionY: 2, width: 348, height: 538, name:''},
+        {id: 1203, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Mundane', positionX: 2, positionY: 2, width: 348, height: 538, name:''},
+        {id: 1204, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Mundane', positionX: 3, positionY: 2, width: 348, height: 538, name:''},
+        {id: 1301, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Accessory',    rarity: 'Mundane', positionX: 4, positionY: 2, width: 348, height: 538, name:''},
+        {id: 1302, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Accessory',    rarity: 'Mundane', positionX: 5, positionY: 2, width: 348, height: 538, name:''},
+        {id: 1303, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Accessory',    rarity: 'Mundane', positionX: 6, positionY: 2, width: 348, height: 538, name:''},
+        {id: 1401, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Armor',        rarity: 'Mundane', positionX: 7, positionY: 2, width: 348, height: 538, name:''},
+        {id: 1402, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Armor',        rarity: 'Mundane', positionX: 8, positionY: 2, width: 348, height: 538, name:''},
+        {id: 1403, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Armor',        rarity: 'Mundane', positionX: 9, positionY: 2, width: 348, height: 538, name:''},
+        {id: 1404, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Armor',        rarity: 'Mundane', positionX: 0, positionY: 3, width: 348, height: 538, name:''},
+        {id: 1501, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Core',         rarity: 'Mundane', positionX: 1, positionY: 3, width: 348, height: 538, name:''},
+        {id: 1502, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Core',         rarity: 'Mundane', positionX: 2, positionY: 3, width: 348, height: 538, name:''},
+        {id: 1503, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Core',         rarity: 'Mundane', positionX: 3, positionY: 3, width: 348, height: 538, name:''},
+        {id: 1504, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Core',         rarity: 'Mundane', positionX: 4, positionY: 3, width: 348, height: 538, name:''},
+        {id: 1601, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Consumable',   rarity: 'Mundane', positionX: 5, positionY: 3, width: 348, height: 538, name:''},
+        {id: 1602, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Consumable',   rarity: 'Mundane', positionX: 6, positionY: 3, width: 348, height: 538, name:''},
+        {id: 1603, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Consumable',   rarity: 'Mundane', positionX: 7, positionY: 3, width: 348, height: 538, name:''},
+        {id: 1604, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Consumable',   rarity: 'Mundane', positionX: 8, positionY: 3, width: 348, height: 538, name:''},
+        {id: 1605, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Consumable',   rarity: 'Mundane', positionX: 9, positionY: 3, width: 348, height: 538, name:''},
+        {id: 1606, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Consumable',   rarity: 'Mundane', positionX: 0, positionY: 4, width: 348, height: 538, name:''},
+        {id: 1607, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Consumable',   rarity: 'Mundane', positionX: 1, positionY: 4, width: 348, height: 538, name:''},
+        {id: 1608, class: 'mundane', size: 'Medium', flip: true, category: 'Items', type: 'Consumable',   rarity: 'Mundane', positionX: 2, positionY: 4, width: 348, height: 538, name:''},
+
+        {id: 2101, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 0, positionY: 0, width: 348, height: 538, name:''},
+        {id: 2102, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 1, positionY: 0, width: 348, height: 538, name:''},
+        {id: 2103, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 2, positionY: 0, width: 348, height: 538, name:''},
+        {id: 2104, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 3, positionY: 0, width: 348, height: 538, name:''},
+        {id: 2105, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 4, positionY: 0, width: 348, height: 538, name:''},
+        {id: 2106, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 5, positionY: 0, width: 348, height: 538, name:''},
+        {id: 2107, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 6, positionY: 0, width: 348, height: 538, name:''},
+        {id: 2108, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 7, positionY: 0, width: 348, height: 538, name:''},
+        {id: 2109, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 8, positionY: 0, width: 348, height: 538, name:''},
+        {id: 2110, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 9, positionY: 0, width: 348, height: 538, name:''},
+        {id: 2111, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 0, positionY: 1, width: 348, height: 538, name:''},
+        {id: 2112, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 1, positionY: 1, width: 348, height: 538, name:''},
+        {id: 2113, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 2, positionY: 1, width: 348, height: 538, name:''},
+        {id: 2114, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 3, positionY: 1, width: 348, height: 538, name:''},
+        {id: 2115, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 4, positionY: 1, width: 348, height: 538, name:''},
+        {id: 2116, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 5, positionY: 1, width: 348, height: 538, name:''},
+        {id: 2117, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 6, positionY: 1, width: 348, height: 538, name:''},
+        {id: 2118, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 7, positionY: 1, width: 348, height: 538, name:''},
+        {id: 2119, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 8, positionY: 1, width: 348, height: 538, name:''},
+        {id: 2120, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 9, positionY: 1, width: 348, height: 538, name:''},
+        {id: 2121, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 0, positionY: 2, width: 348, height: 538, name:''},
+        {id: 2122, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 1, positionY: 2, width: 348, height: 538, name:''},
+        {id: 2123, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Common', positionX: 2, positionY: 2, width: 348, height: 538, name:''},
+        {id: 2201, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Common', positionX: 3, positionY: 2, width: 348, height: 538, name:''},
+        {id: 2202, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Common', positionX: 4, positionY: 2, width: 348, height: 538, name:''},
+        {id: 2203, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Common', positionX: 5, positionY: 2, width: 348, height: 538, name:''},
+        {id: 2204, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Common', positionX: 6, positionY: 2, width: 348, height: 538, name:''},
+        {id: 2205, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Common', positionX: 7, positionY: 2, width: 348, height: 538, name:''},
+        {id: 2206, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Common', positionX: 8, positionY: 2, width: 348, height: 538, name:''},
+        {id: 2207, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Common', positionX: 9, positionY: 2, width: 348, height: 538, name:''},
+        {id: 2208, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Common', positionX: 0, positionY: 3, width: 348, height: 538, name:''},
+        {id: 2209, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Common', positionX: 1, positionY: 3, width: 348, height: 538, name:''},
+        {id: 2210, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Common', positionX: 2, positionY: 3, width: 348, height: 538, name:''},
+        {id: 2301, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Accessory',    rarity: 'Common', positionX: 3, positionY: 3, width: 348, height: 538, name:''},
+        {id: 2302, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Accessory',    rarity: 'Common', positionX: 4, positionY: 3, width: 348, height: 538, name:''},
+        {id: 2303, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Accessory',    rarity: 'Common', positionX: 5, positionY: 3, width: 348, height: 538, name:''},
+        {id: 2401, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Armor',        rarity: 'Common', positionX: 6, positionY: 3, width: 348, height: 538, name:''},
+        {id: 2402, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Armor',        rarity: 'Common', positionX: 7, positionY: 3, width: 348, height: 538, name:''},
+        {id: 2403, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Armor',        rarity: 'Common', positionX: 8, positionY: 3, width: 348, height: 538, name:''},
+        {id: 2404, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Armor',        rarity: 'Common', positionX: 9, positionY: 3, width: 348, height: 538, name:''},
+        {id: 2501, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Core',         rarity: 'Common', positionX: 0, positionY: 4, width: 348, height: 538, name:''},
+        {id: 2502, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Core',         rarity: 'Common', positionX: 1, positionY: 4, width: 348, height: 538, name:''},
+        {id: 2503, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Core',         rarity: 'Common', positionX: 2, positionY: 4, width: 348, height: 538, name:''},
+        {id: 2504, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Core',         rarity: 'Common', positionX: 3, positionY: 4, width: 348, height: 538, name:''},
+        {id: 2601, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Consumable',   rarity: 'Common', positionX: 4, positionY: 4, width: 348, height: 538, name:''},
+        {id: 2602, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Consumable',   rarity: 'Common', positionX: 5, positionY: 4, width: 348, height: 538, name:''},
+        {id: 2603, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Consumable',   rarity: 'Common', positionX: 6, positionY: 4, width: 348, height: 538, name:''},
+        {id: 2604, class: 'common', size: 'Medium', flip: true, category: 'Items', type: 'Consumable',   rarity: 'Common', positionX: 7, positionY: 4, width: 348, height: 538, name:''},
+
+        {id: 3101, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 0, positionY: 0, width: 348, height: 538, name:''},
+        {id: 3102, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 1, positionY: 0, width: 348, height: 538, name:''},
+        {id: 3103, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 2, positionY: 0, width: 348, height: 538, name:''},
+        {id: 3104, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 3, positionY: 0, width: 348, height: 538, name:''},
+        {id: 3105, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 4, positionY: 0, width: 348, height: 538, name:''},
+        {id: 3106, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 5, positionY: 0, width: 348, height: 538, name:''},
+        {id: 3107, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 6, positionY: 0, width: 348, height: 538, name:''},
+        {id: 3108, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 7, positionY: 0, width: 348, height: 538, name:''},
+        {id: 3109, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 8, positionY: 0, width: 348, height: 538, name:''},
+        {id: 3110, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 9, positionY: 0, width: 348, height: 538, name:''},
+        {id: 3111, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 0, positionY: 1, width: 348, height: 538, name:''},
+        {id: 3112, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 1, positionY: 1, width: 348, height: 538, name:''},
+        {id: 3113, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 2, positionY: 1, width: 348, height: 538, name:''},
+        {id: 3114, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 3, positionY: 1, width: 348, height: 538, name:''},
+        {id: 3115, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 4, positionY: 1, width: 348, height: 538, name:''},
+        {id: 3116, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 5, positionY: 1, width: 348, height: 538, name:''},
+        {id: 3117, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 6, positionY: 1, width: 348, height: 538, name:''},
+        {id: 3118, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 7, positionY: 1, width: 348, height: 538, name:''},
+        {id: 3119, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 8, positionY: 1, width: 348, height: 538, name:''},
+        {id: 3120, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 9, positionY: 1, width: 348, height: 538, name:''},
+        {id: 3121, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 0, positionY: 2, width: 348, height: 538, name:''},
+        {id: 3122, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 1, positionY: 2, width: 348, height: 538, name:''},
+        {id: 3123, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Uncommon', positionX: 2, positionY: 2, width: 348, height: 538, name:''},
+        {id: 3201, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Uncommon', positionX: 3, positionY: 2, width: 348, height: 538, name:''},
+        {id: 3202, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Uncommon', positionX: 4, positionY: 2, width: 348, height: 538, name:''},
+        {id: 3203, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Uncommon', positionX: 5, positionY: 2, width: 348, height: 538, name:''},
+        {id: 3204, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Uncommon', positionX: 6, positionY: 2, width: 348, height: 538, name:''},
+        {id: 3205, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Uncommon', positionX: 7, positionY: 2, width: 348, height: 538, name:''},
+        {id: 3206, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Uncommon', positionX: 8, positionY: 2, width: 348, height: 538, name:''},
+        {id: 3207, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Uncommon', positionX: 9, positionY: 2, width: 348, height: 538, name:''},
+        {id: 3208, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Uncommon', positionX: 0, positionY: 3, width: 348, height: 538, name:''},
+        {id: 3209, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Uncommon', positionX: 1, positionY: 3, width: 348, height: 538, name:''},
+        {id: 3210, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Uncommon', positionX: 2, positionY: 3, width: 348, height: 538, name:''},
+        {id: 3211, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Uncommon', positionX: 3, positionY: 3, width: 348, height: 538, name:''},
+        {id: 3301, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Accessory',    rarity: 'Uncommon', positionX: 4, positionY: 3, width: 348, height: 538, name:''},
+        {id: 3302, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Accessory',    rarity: 'Uncommon', positionX: 5, positionY: 3, width: 348, height: 538, name:''},
+        {id: 3401, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Armor',        rarity: 'Uncommon', positionX: 6, positionY: 3, width: 348, height: 538, name:''},
+        {id: 3402, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Armor',        rarity: 'Uncommon', positionX: 7, positionY: 3, width: 348, height: 538, name:''},
+        {id: 3403, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Armor',        rarity: 'Uncommon', positionX: 8, positionY: 3, width: 348, height: 538, name:''},
+        {id: 3404, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Armor',        rarity: 'Uncommon', positionX: 9, positionY: 3, width: 348, height: 538, name:''},
+        {id: 3405, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Armor',        rarity: 'Uncommon', positionX: 0, positionY: 4, width: 348, height: 538, name:''},
+        {id: 3501, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Core',         rarity: 'Uncommon', positionX: 1, positionY: 4, width: 348, height: 538, name:''},
+        {id: 3502, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Core',         rarity: 'Uncommon', positionX: 2, positionY: 4, width: 348, height: 538, name:''},
+        {id: 3503, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Core',         rarity: 'Uncommon', positionX: 3, positionY: 4, width: 348, height: 538, name:''},
+        {id: 3504, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Core',         rarity: 'Uncommon', positionX: 4, positionY: 4, width: 348, height: 538, name:''},
+        {id: 3601, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Consumable',   rarity: 'Uncommon', positionX: 5, positionY: 4, width: 348, height: 538, name:''},
+        {id: 3602, class: 'uncommon', size: 'Medium', flip: true, category: 'Items', type: 'Consumable',   rarity: 'Uncommon', positionX: 6, positionY: 4, width: 348, height: 538, name:''},
+
+        {id: 4101, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 0, positionY: 0, width: 348, height: 538, name:''},
+        {id: 4102, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 1, positionY: 0, width: 348, height: 538, name:''},
+        {id: 4103, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 2, positionY: 0, width: 348, height: 538, name:''},
+        {id: 4104, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 3, positionY: 0, width: 348, height: 538, name:''},
+        {id: 4105, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 4, positionY: 0, width: 348, height: 538, name:''},
+        {id: 4106, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 5, positionY: 0, width: 348, height: 538, name:''},
+        {id: 4107, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 6, positionY: 0, width: 348, height: 538, name:''},
+        {id: 4108, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 7, positionY: 0, width: 348, height: 538, name:''},
+        {id: 4109, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 8, positionY: 0, width: 348, height: 538, name:''},
+        {id: 4110, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 9, positionY: 0, width: 348, height: 538, name:''},
+        {id: 4111, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 0, positionY: 1, width: 348, height: 538, name:''},
+        {id: 4112, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 1, positionY: 1, width: 348, height: 538, name:''},
+        {id: 4113, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 2, positionY: 1, width: 348, height: 538, name:''},
+        {id: 4114, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 3, positionY: 1, width: 348, height: 538, name:''},
+        {id: 4115, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 4, positionY: 1, width: 348, height: 538, name:''},
+        {id: 4116, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 5, positionY: 1, width: 348, height: 538, name:''},
+        {id: 4117, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 6, positionY: 1, width: 348, height: 538, name:''},
+        {id: 4118, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 7, positionY: 1, width: 348, height: 538, name:''},
+        {id: 4119, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 8, positionY: 1, width: 348, height: 538, name:''},
+        {id: 4120, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 9, positionY: 1, width: 348, height: 538, name:''},
+        {id: 4121, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 0, positionY: 2, width: 348, height: 538, name:''},
+        {id: 4122, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 1, positionY: 2, width: 348, height: 538, name:''},
+        {id: 4123, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 2, positionY: 2, width: 348, height: 538, name:''},
+        {id: 4124, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 3, positionY: 2, width: 348, height: 538, name:''},
+        {id: 4125, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Weapon',       rarity: 'Rare', positionX: 4, positionY: 2, width: 348, height: 538, name:''},
+        {id: 4201, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Rare', positionX: 5, positionY: 2, width: 348, height: 538, name:''},
+        {id: 4202, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Rare', positionX: 6, positionY: 2, width: 348, height: 538, name:''},
+        {id: 4203, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Rare', positionX: 7, positionY: 2, width: 348, height: 538, name:''},
+        {id: 4204, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Rare', positionX: 8, positionY: 2, width: 348, height: 538, name:''},
+        {id: 4205, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Rare', positionX: 9, positionY: 2, width: 348, height: 538, name:''},
+        {id: 4206, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Rare', positionX: 0, positionY: 3, width: 348, height: 538, name:''},
+        {id: 4207, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Rare', positionX: 1, positionY: 3, width: 348, height: 538, name:''},
+        {id: 4208, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Relic',        rarity: 'Rare', positionX: 2, positionY: 3, width: 348, height: 538, name:''},
+        {id: 4301, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Accessory',    rarity: 'Rare', positionX: 3, positionY: 3, width: 348, height: 538, name:''},
+        {id: 4302, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Accessory',    rarity: 'Rare', positionX: 4, positionY: 3, width: 348, height: 538, name:''},
+        {id: 4303, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Accessory',    rarity: 'Rare', positionX: 5, positionY: 3, width: 348, height: 538, name:''},
+        {id: 4304, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Accessory',    rarity: 'Rare', positionX: 6, positionY: 3, width: 348, height: 538, name:''},
+        {id: 4401, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Armor',        rarity: 'Rare', positionX: 7, positionY: 3, width: 348, height: 538, name:''},
+        {id: 4402, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Armor',        rarity: 'Rare', positionX: 8, positionY: 3, width: 348, height: 538, name:''},
+        {id: 4403, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Armor',        rarity: 'Rare', positionX: 9, positionY: 3, width: 348, height: 538, name:''},
+        {id: 4404, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Armor',        rarity: 'Rare', positionX: 0, positionY: 4, width: 348, height: 538, name:''},
+        {id: 4405, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Armor',        rarity: 'Rare', positionX: 1, positionY: 4, width: 348, height: 538, name:''},
+        {id: 4501, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Core',         rarity: 'Rare', positionX: 2, positionY: 4, width: 348, height: 538, name:''},
+        {id: 4502, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Core',         rarity: 'Rare', positionX: 3, positionY: 4, width: 348, height: 538, name:''},
+        {id: 4503, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Core',         rarity: 'Rare', positionX: 4, positionY: 4, width: 348, height: 538, name:''},
+        {id: 4504, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Core',         rarity: 'Rare', positionX: 5, positionY: 4, width: 348, height: 538, name:''},
+        {id: 4601, class: 'rare', size: 'Medium', flip: true, category: 'Items', type: 'Consumable',   rarity: 'Rare', positionX: 6, positionY: 4, width: 348, height: 538, name:''},
+
+        {id: 5101, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Weapon',       rarity: 'Mundane',   positionX: 0, positionY: 0, width: 348, height: 538, name:''},
+        {id: 5102, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Weapon',       rarity: 'Mundane',   positionX: 1, positionY: 0, width: 348, height: 538, name:''},
+        {id: 5103, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Weapon',       rarity: 'Mundane',   positionX: 2, positionY: 0, width: 348, height: 538, name:''},
+        {id: 5104, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Accessory',    rarity: 'Mundane',   positionX: 3, positionY: 0, width: 348, height: 538, name:''},
+        {id: 5105, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Core',         rarity: 'Mundane',   positionX: 4, positionY: 0, width: 348, height: 538, name:''},
+        {id: 5106, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Weapon',       rarity: 'Mundane',   positionX: 5, positionY: 0, width: 348, height: 538, name:''},
+        {id: 5107, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Weapon',       rarity: 'Mundane',   positionX: 6, positionY: 0, width: 348, height: 538, name:''},
+        {id: 5108, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Armor',        rarity: 'Common',    positionX: 7, positionY: 0, width: 348, height: 538, name:''},
+        {id: 5109, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Accessory',    rarity: 'Common',    positionX: 8, positionY: 0, width: 348, height: 538, name:''},
+        {id: 5110, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Weapon',       rarity: 'Common',    positionX: 9, positionY: 0, width: 348, height: 538, name:''},
+        {id: 5111, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Weapon',       rarity: 'Common',    positionX: 0, positionY: 1, width: 348, height: 538, name:''},
+        {id: 5112, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Weapon',       rarity: 'Common',    positionX: 1, positionY: 1, width: 348, height: 538, name:''},
+        {id: 5113, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Weapon',       rarity: 'Common',    positionX: 2, positionY: 1, width: 348, height: 538, name:''},
+        {id: 5114, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Core',         rarity: 'Common',    positionX: 3, positionY: 1, width: 348, height: 538, name:''},
+        {id: 5115, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Weapon',       rarity: 'Uncommon',  positionX: 4, positionY: 1, width: 348, height: 538, name:''},
+        {id: 5116, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Weapon',       rarity: 'Uncommon',  positionX: 5, positionY: 1, width: 348, height: 538, name:''},
+        {id: 5117, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Accessory',    rarity: 'Uncommon',  positionX: 6, positionY: 1, width: 348, height: 538, name:''},
+        {id: 5118, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Weapon',       rarity: 'Uncommon',  positionX: 7, positionY: 1, width: 348, height: 538, name:''},
+        {id: 5119, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Weapon',       rarity: 'Uncommon',  positionX: 8, positionY: 1, width: 348, height: 538, name:''},
+        {id: 5120, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Weapon',       rarity: 'Uncommon',  positionX: 9, positionY: 1, width: 348, height: 538, name:''},
+        {id: 5121, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Armor',        rarity: 'Uncommon',  positionX: 0, positionY: 2, width: 348, height: 538, name:''},
+        {id: 5122, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Weapon',       rarity: 'Rare',      positionX: 1, positionY: 2, width: 348, height: 538, name:''},
+        {id: 5123, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Weapon',       rarity: 'Rare',      positionX: 2, positionY: 2, width: 348, height: 538, name:''},
+        {id: 5124, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Armor',        rarity: 'Rare',      positionX: 3, positionY: 2, width: 348, height: 538, name:''},
+        {id: 5125, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Weapon',       rarity: 'Rare',      positionX: 4, positionY: 2, width: 348, height: 538, name:''},
+        {id: 5126, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Accessory',    rarity: 'Rare',      positionX: 5, positionY: 2, width: 348, height: 538, name:''},
+        {id: 5127, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Core',         rarity: 'Rare',      positionX: 6, positionY: 2, width: 348, height: 538, name:''},
+        {id: 5128, class: 'unique', size: 'Medium', flip: true, category: 'Unique Items', type: 'Weapon',       rarity: 'Rare',      positionX: 7, positionY: 2, width: 348, height: 538, name:''},
+
+        {id: 5129, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Relic',        rarity: '', positionX: 8, positionY: 2, width: 348, height: 538, name:''},
+        {id: 5130, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Relic',        rarity: '', positionX: 9, positionY: 2, width: 348, height: 538, name:''},
+        {id: 5131, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Relic',        rarity: '', positionX: 0, positionY: 3, width: 348, height: 538, name:''},
+        {id: 5132, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Relic',        rarity: '', positionX: 1, positionY: 3, width: 348, height: 538, name:''},
+        {id: 5133, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Relic',        rarity: '', positionX: 2, positionY: 3, width: 348, height: 538, name:''},
+        {id: 5134, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Relic',        rarity: '', positionX: 3, positionY: 3, width: 348, height: 538, name:''},
+        {id: 5135, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Relic',        rarity: '', positionX: 4, positionY: 3, width: 348, height: 538, name:''},
+        {id: 5136, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Relic',        rarity: '', positionX: 5, positionY: 3, width: 348, height: 538, name:''},
+        {id: 5137, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Relic',        rarity: '', positionX: 6, positionY: 3, width: 348, height: 538, name:''},
+        {id: 5138, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Relic',        rarity: '', positionX: 7, positionY: 3, width: 348, height: 538, name:''},
+        {id: 5139, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Relic',        rarity: '', positionX: 8, positionY: 3, width: 348, height: 538, name:''},
+        {id: 5140, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Relic',        rarity: '', positionX: 9, positionY: 3, width: 348, height: 538, name:''},
+        {id: 5141, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Relic',        rarity: '', positionX: 0, positionY: 4, width: 348, height: 538, name:''},
+        {id: 5142, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Relic',        rarity: '', positionX: 1, positionY: 4, width: 348, height: 538, name:''},
+        {id: 5143, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Relic',        rarity: '', positionX: 2, positionY: 4, width: 348, height: 538, name:''},
+        {id: 5144, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Relic',        rarity: '', positionX: 3, positionY: 4, width: 348, height: 538, name:''},
+        {id: 5145, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Relic',        rarity: '', positionX: 4, positionY: 4, width: 348, height: 538, name:''},
+        {id: 5146, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Weapon',       rarity: '', positionX: 5, positionY: 4, width: 348, height: 538, name:''},
+        {id: 5147, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Weapon',       rarity: '', positionX: 6, positionY: 4, width: 348, height: 538, name:''},
+        {id: 5148, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Weapon',       rarity: '', positionX: 7, positionY: 4, width: 348, height: 538, name:''},
+        {id: 5149, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Weapon',       rarity: '', positionX: 8, positionY: 4, width: 348, height: 538, name:''},
+        {id: 5150, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Armor',        rarity: '', positionX: 9, positionY: 4, width: 348, height: 538, name:''},
+        {id: 5151, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Accessory',    rarity: '', positionX: 0, positionY: 5, width: 348, height: 538, name:''},
+        {id: 5152, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Consumable',   rarity: '', positionX: 1, positionY: 5, width: 348, height: 538, name:''},
+        {id: 5153, class: 'loot', size: 'Medium', flip: true, category: 'Loots', type: 'Consumable',   rarity: '', positionX: 2, positionY: 5, width: 348, height: 538, name:''},
+
+        {id: 6101, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 1, positionX: 0, positionY: 0, width: 378, height: 248, name:'Familiar'},
+        {id: 6102, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 2, positionX: 1, positionY: 0, width: 378, height: 248, name:'Summoning'},
+    //  {id: 6103, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 0, positionX: 2, positionY: 0, width: 378, height: 248, name:''},
+        {id: 6104, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 1, positionX: 0, positionY: 1, width: 378, height: 248, name:'Last Laugh'},
+        {id: 6105, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 2, positionX: 1, positionY: 1, width: 378, height: 248, name:'Fortune Telling'},
+        {id: 6106, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 4, positionX: 2, positionY: 1, width: 378, height: 248, name:'Soul Bond'},
+        {id: 6107, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 1, positionX: 0, positionY: 2, width: 378, height: 248, name:'Banished Knowledge'},
+        {id: 6108, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 2, positionX: 1, positionY: 2, width: 378, height: 248, name:'Ruination'},
+        {id: 6109, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 4, positionX: 2, positionY: 2, width: 378, height: 248, name:'The Tower Reversed'},
+        {id: 6110, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 1, positionX: 0, positionY: 3, width: 378, height: 248, name:'Sanctuary'},
+        {id: 6111, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 2, positionX: 1, positionY: 3, width: 378, height: 248, name:'Possession'},
+        {id: 6112, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 4, positionX: 2, positionY: 3, width: 378, height: 248, name:'Felled Afterlife'},
+        {id: 6113, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 1, positionX: 0, positionY: 4, width: 378, height: 248, name:'Euthanasia'},
+        {id: 6114, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 2, positionX: 1, positionY: 4, width: 378, height: 248, name:'Imposed Paradigm'},
+        {id: 6115, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 3, positionX: 2, positionY: 4, width: 378, height: 248, name:'Friends with Benefits'},
+        {id: 6116, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 1, positionX: 0, positionY: 5, width: 378, height: 248, name:'Perfect Love'},
+        {id: 6117, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 2, positionX: 1, positionY: 5, width: 378, height: 248, name:'BFF'},
+        {id: 6118, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 3, positionX: 2, positionY: 5, width: 378, height: 248, name:'Resonance'},
+        {id: 6119, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 1, positionX: 0, positionY: 6, width: 378, height: 248, name:'Forebode'},
+    //  {id: 6120, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 1, positionX: 1, positionY: 6, width: 378, height: 248, name:'Sanctuary'},
+        {id: 6121, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 3, positionX: 2, positionY: 6, width: 378, height: 248, name:'Helping Hands'},
+    //  {id: 6122, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 1, positionX: 0, positionY: 7, width: 378, height: 248, name:'Familiar'},
+    //  {id: 6123, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 1, positionX: 1, positionY: 7, width: 378, height: 248, name:'Euthanasia'},
+        {id: 6124, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 3, positionX: 2, positionY: 7, width: 378, height: 248, name:'The Pessimist'},
+    //  {id: 6125, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 1, positionX: 0, positionY: 8, width: 378, height: 248, name:'Last Laugh'},
+    //  {id: 6126, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 1, positionX: 1, positionY: 8, width: 378, height: 248, name:'Perfect Love'},
+        {id: 6127, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 3, positionX: 2, positionY: 8, width: 378, height: 248, name:'Exalted Summoning'},
+    //  {id: 6128, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 1, positionX: 0, positionY: 9, width: 378, height: 248, name:'Banished Knowledge'},
+    //  {id: 6129, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 1, positionX: 1, positionY: 9, width: 378, height: 248, name:'Forebode'},
+        {id: 6130, class: 'assemblage', size: 'Small', flip: false, category: 'Discipline', type: 'Assemblage', rarity: 2, positionX: 2, positionY: 9, width: 378, height: 248, name:'Conduit Summoning'},
+        
+        {id: 6201, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 1, positionX: 0, positionY: 0, width: 378, height: 248, name:'Imbued Fear'},
+        {id: 6202, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 2, positionX: 1, positionY: 0, width: 378, height: 248, name:'Soul Steal'},
+    //  {id: 6203, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 0, positionX: 2, positionY: 0, width: 378, height: 248, name:''},
+        {id: 6204, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 1, positionX: 0, positionY: 1, width: 378, height: 248, name:'Crumbling Time'},
+        {id: 6205, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 2, positionX: 1, positionY: 1, width: 378, height: 248, name:'In Dreams'},
+        {id: 6206, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 4, positionX: 2, positionY: 1, width: 378, height: 248, name:'Abbadon\'s Subtlety'},
+        {id: 6207, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 1, positionX: 0, positionY: 2, width: 378, height: 248, name:'Life Tithe'},
+        {id: 6208, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 2, positionX: 1, positionY: 2, width: 378, height: 248, name:'Root the Mind'},
+        {id: 6209, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 4, positionX: 2, positionY: 2, width: 378, height: 248, name:'Ineptitude'},
+        {id: 6210, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 1, positionX: 0, positionY: 3, width: 378, height: 248, name:'To Faust'},
+        {id: 6211, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 2, positionX: 1, positionY: 3, width: 378, height: 248, name:'Blood Toll'},
+        {id: 6212, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 4, positionX: 2, positionY: 3, width: 378, height: 248, name:'He Watches'},
+        {id: 6213, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 1, positionX: 0, positionY: 4, width: 378, height: 248, name:'Corrosive Ideal'},
+        {id: 6214, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 2, positionX: 1, positionY: 4, width: 378, height: 248, name:'Blood Pact'},
+        {id: 6215, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 3, positionX: 2, positionY: 4, width: 378, height: 248, name:'Soul Pact'},
+        {id: 6216, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 1, positionX: 0, positionY: 5, width: 378, height: 248, name:'Oxygen Syphon'},
+        {id: 6217, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 2, positionX: 1, positionY: 5, width: 378, height: 248, name:'Bring the Shado'},
+        {id: 6218, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 3, positionX: 2, positionY: 5, width: 378, height: 248, name:'Sinful Privileg'},
+        {id: 6219, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 1, positionX: 0, positionY: 6, width: 378, height: 248, name:'Gore Shot'},
+    //  {id: 6220, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 1, positionX: 1, positionY: 6, width: 378, height: 248, name:'To Faust'},
+        {id: 6221, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 3, positionX: 2, positionY: 6, width: 378, height: 248, name:'Life Grasp'},
+    //  {id: 6222, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 1, positionX: 0, positionY: 7, width: 378, height: 248, name:'Imbued Fear'},
+    //  {id: 6223, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 1, positionX: 1, positionY: 7, width: 378, height: 248, name:'Corrosive Ideal'},
+        {id: 6224, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 3, positionX: 2, positionY: 7, width: 378, height: 248, name:'In Secret'},
+    //  {id: 6225, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 1, positionX: 0, positionY: 8, width: 378, height: 248, name:'Crumbling Time'},
+    //  {id: 6226, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 1, positionX: 1, positionY: 8, width: 378, height: 248, name:'Oxygen Syphon'},
+        {id: 6227, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 3, positionX: 2, positionY: 8, width: 378, height: 248, name:'Wretched Tether'},
+    //  {id: 6228, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 1, positionX: 0, positionY: 9, width: 378, height: 248, name:'Life Tithe'},
+    //  {id: 6229, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 1, positionX: 1, positionY: 9, width: 378, height: 248, name:'Gore Shot'},
+        {id: 6230, class: 'cruor', size: 'Small', flip: false, category: 'Discipline', type: 'Cruor', rarity: 2, positionX: 2, positionY: 9, width: 378, height: 248, name:'Organic Liquify'},
+        
+        {id: 6301, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 1, positionX: 0, positionY: 0, width: 378, height: 248, name:'Chains of Command'},
+        {id: 6302, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 2, positionX: 1, positionY: 0, width: 378, height: 248, name:'Promise'},
+    //  {id: 6303, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 0, positionX: 2, positionY: 0, width: 378, height: 248, name:''},
+        {id: 6304, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 1, positionX: 0, positionY: 1, width: 378, height: 248, name:'Blade Works'},
+        {id: 6305, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 2, positionX: 1, positionY: 1, width: 378, height: 248, name:'Physically Perfected'},
+        {id: 6306, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 4, positionX: 2, positionY: 1, width: 378, height: 248, name:'Will to Live'},
+        {id: 6307, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 1, positionX: 0, positionY: 2, width: 378, height: 248, name:'Anticipated Attack'},
+        {id: 6308, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 2, positionX: 1, positionY: 2, width: 378, height: 248, name:'Mage Breaker'},
+        {id: 6309, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 4, positionX: 2, positionY: 2, width: 378, height: 248, name:'Master of the Vessel'},
+        {id: 6310, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 1, positionX: 0, positionY: 3, width: 378, height: 248, name:'Living Bulwark'},
+        {id: 6311, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 2, positionX: 1, positionY: 3, width: 378, height: 248, name:'Gigas Grip'},
+        {id: 6312, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 4, positionX: 2, positionY: 3, width: 378, height: 248, name:'Challenge Supreme'},
+        {id: 6313, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 1, positionX: 0, positionY: 4, width: 378, height: 248, name:'Fortuitous Homicide'},
+        {id: 6314, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 2, positionX: 1, positionY: 4, width: 378, height: 248, name:'Onslaught'},
+        {id: 6315, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 3, positionX: 2, positionY: 4, width: 378, height: 248, name:'Relentless Feign'},
+        {id: 6316, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 1, positionX: 0, positionY: 5, width: 378, height: 248, name:'Hammer Helm'},
+        {id: 6317, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 2, positionX: 1, positionY: 5, width: 378, height: 248, name:'Blood Rage'},
+        {id: 6318, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 3, positionX: 2, positionY: 5, width: 378, height: 248, name:'Dead End'},
+        {id: 6319, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 1, positionX: 0, positionY: 6, width: 378, height: 248, name:'Critical Defense'},
+    //  {id: 6320, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 1, positionX: 1, positionY: 6, width: 378, height: 248, name:'Living Bulwark'},
+        {id: 6321, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 3, positionX: 2, positionY: 6, width: 378, height: 248, name:'Nemesis Enforcement'},
+    //  {id: 6322, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 1, positionX: 0, positionY: 7, width: 378, height: 248, name:'Chain of Command'},
+    //  {id: 6323, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 1, positionX: 1, positionY: 7, width: 378, height: 248, name:'Fortuitous Homicide'},
+        {id: 6324, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 3, positionX: 2, positionY: 7, width: 378, height: 248, name:'Bring the Wrath'},
+    //  {id: 6325, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 1, positionX: 0, positionY: 8, width: 378, height: 248, name:'Blade Works'},
+    //  {id: 6326, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 1, positionX: 1, positionY: 8, width: 378, height: 248, name:'Hammer Helm'},
+        {id: 6327, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 3, positionX: 2, positionY: 8, width: 378, height: 248, name:'Morbid Envy'},
+    //  {id: 6328, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 1, positionX: 0, positionY: 9, width: 378, height: 248, name:'Anticipated Attack'},
+    //  {id: 6329, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 1, positionX: 1, positionY: 9, width: 378, height: 248, name:'Critical Defense'},
+        {id: 6330, class: 'martial', size: 'Small', flip: false, category: 'Discipline', type: 'Martial', rarity: 2, positionX: 2, positionY: 9, width: 378, height: 248, name:'Whirlwind'},
+        
+        {id: 6401, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 1, positionX: 0, positionY: 0, width: 378, height: 248, name:'Intervention'},
+        {id: 6402, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 2, positionX: 1, positionY: 0, width: 378, height: 248, name:'Fervor'},
+    //  {id: 6403, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 0, positionX: 2, positionY: 0, width: 378, height: 248, name:''},
+        {id: 6404, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 1, positionX: 0, positionY: 1, width: 378, height: 248, name:'Guardian Angel'},
+        {id: 6405, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 2, positionX: 1, positionY: 1, width: 378, height: 248, name:'Proof of Divinity'},
+        {id: 6406, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 4, positionX: 2, positionY: 1, width: 378, height: 248, name:'The Only Truth'},
+        {id: 6407, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 1, positionX: 0, positionY: 2, width: 378, height: 248, name:'Aspect'},
+        {id: 6408, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 2, positionX: 1, positionY: 2, width: 378, height: 248, name:'Paradigm Assault'},
+        {id: 6409, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 4, positionX: 2, positionY: 2, width: 378, height: 248, name:'Dimension Shift'},
+        {id: 6410, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 1, positionX: 0, positionY: 3, width: 378, height: 248, name:'Mend'},
+        {id: 6411, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 2, positionX: 1, positionY: 3, width: 378, height: 248, name:'From the Grave'},
+        {id: 6412, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 4, positionX: 2, positionY: 3, width: 378, height: 248, name:'Inspiration'},
+        {id: 6413, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 1, positionX: 0, positionY: 4, width: 378, height: 248, name:'Courage Stifle'},
+        {id: 6414, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 2, positionX: 1, positionY: 4, width: 378, height: 248, name:'Soul Clear'},
+        {id: 6415, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 3, positionX: 2, positionY: 4, width: 378, height: 248, name:'Zealous Reprisal'},
+        {id: 6416, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 1, positionX: 0, positionY: 5, width: 378, height: 248, name:'Magic Armor'},
+        {id: 6417, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 2, positionX: 1, positionY: 5, width: 378, height: 248, name:'Ascension'},
+        {id: 6418, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 3, positionX: 2, positionY: 5, width: 378, height: 248, name:'Invincibility'},
+        {id: 6419, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 1, positionX: 0, positionY: 6, width: 378, height: 248, name:'Nirvana\'s Mark'},
+    //  {id: 6420, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 1, positionX: 1, positionY: 6, width: 378, height: 248, name:'Mend'},
+        {id: 6421, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 3, positionX: 2, positionY: 6, width: 378, height: 248, name:'Wings Manifest'},
+    //  {id: 6422, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 1, positionX: 0, positionY: 7, width: 378, height: 248, name:'Intervention'},
+    //  {id: 6423, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 1, positionX: 1, positionY: 7, width: 378, height: 248, name:'Courage Stifle'},
+        {id: 6424, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 3, positionX: 2, positionY: 7, width: 378, height: 248, name:'Font of Renewal'},
+    //  {id: 6425, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 1, positionX: 0, positionY: 8, width: 378, height: 248, name:'Guardian Angel'},
+    //  {id: 6426, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 1, positionX: 1, positionY: 8, width: 378, height: 248, name:'Magic Armor'},
+        {id: 6427, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 3, positionX: 2, positionY: 8, width: 378, height: 248, name:'Greater Existence'},
+    //  {id: 6428, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 1, positionX: 0, positionY: 9, width: 378, height: 248, name:'Aspect'},
+    //  {id: 6429, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 1, positionX: 1, positionY: 9, width: 378, height: 248, name:'Nirvana\'s Mark'},
+        {id: 6430, class: 'sanctus', size: 'Small', flip: false, category: 'Discipline', type: 'Sanctus', rarity: 2, positionX: 2, positionY: 9, width: 378, height: 248, name:'Salvation'},
+        
+        {id: 6501, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 1, positionX: 0, positionY: 0, width: 378, height: 248, name:'Kill the Messenger'},
+        {id: 6502, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 2, positionX: 1, positionY: 0, width: 378, height: 248, name:'Down the Masses'},
+    //  {id: 6503, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 0, positionX: 2, positionY: 0, width: 378, height: 248, name:''},
+        {id: 6504, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 1, positionX: 0, positionY: 1, width: 378, height: 248, name:'Follow Through'},
+        {id: 6505, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 2, positionX: 1, positionY: 1, width: 378, height: 248, name:'Friend over Foe'},
+        {id: 6506, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 4, positionX: 2, positionY: 1, width: 378, height: 248, name:'Blot Out the Sun'},
+        {id: 6507, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 1, positionX: 0, positionY: 2, width: 378, height: 248, name:'Trick Shot'},
+        {id: 6508, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 2, positionX: 1, positionY: 2, width: 378, height: 248, name:'Overwatch'},
+        {id: 6509, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 4, positionX: 2, positionY: 2, width: 378, height: 248, name:'Brutal Slaughter'},
+        {id: 6510, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 1, positionX: 0, positionY: 3, width: 378, height: 248, name:'Speed Injustice'},
+        {id: 6511, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 2, positionX: 1, positionY: 3, width: 378, height: 248, name:'Shame of the Otaku'},
+        {id: 6512, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 4, positionX: 2, positionY: 3, width: 378, height: 248, name:'Fist of Polaris'},
+        {id: 6513, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 1, positionX: 0, positionY: 4, width: 378, height: 248, name:'Quick Blow'},
+        {id: 6514, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 2, positionX: 1, positionY: 4, width: 378, height: 248, name:'False Idol'},
+        {id: 6515, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 3, positionX: 2, positionY: 4, width: 378, height: 248, name:'Ninjutsu'},
+        {id: 6516, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 1, positionX: 0, positionY: 5, width: 378, height: 248, name:'Murder Circus'},
+        {id: 6517, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 2, positionX: 1, positionY: 5, width: 378, height: 248, name:'Blade Distortion'},
+        {id: 6518, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 3, positionX: 2, positionY: 5, width: 378, height: 248, name:'Jack of All Blades'},
+        {id: 6519, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 1, positionX: 0, positionY: 6, width: 378, height: 248, name:'Like the Shadows'},
+    //  {id: 6520, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 1, positionX: 1, positionY: 6, width: 378, height: 248, name:'Speed Injustice'},
+        {id: 6521, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 3, positionX: 2, positionY: 6, width: 378, height: 248, name:'Rapid Reload'},
+    //  {id: 6522, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 1, positionX: 0, positionY: 7, width: 378, height: 248, name:'Kill the Messenger'},
+    //  {id: 6523, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 1, positionX: 1, positionY: 7, width: 378, height: 248, name:'Quick Blow'},
+        {id: 6524, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 3, positionX: 2, positionY: 7, width: 378, height: 248, name:'Profound Intuition'},
+    //  {id: 6525, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 1, positionX: 0, positionY: 8, width: 378, height: 248, name:'Follow Through'},
+    //  {id: 6526, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 1, positionX: 1, positionY: 8, width: 378, height: 248, name:'Murder Circus'},
+        {id: 6527, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 3, positionX: 2, positionY: 8, width: 378, height: 248, name:'Precise Strike'},
+    //  {id: 6528, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 1, positionX: 0, positionY: 9, width: 378, height: 248, name:'Trick Shot'},
+    //  {id: 6529, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 1, positionX: 1, positionY: 9, width: 378, height: 248, name:'Like the Shadows'},
+        {id: 6530, class: 'subterfuge', size: 'Small', flip: false, category: 'Discipline', type: 'Subterfuge', rarity: 2, positionX: 2, positionY: 9, width: 378, height: 248, name:'C.Q.C'},
+        
+        {id: 7101, class: 'upgrade', size: 'Small', flip: false, category: 'Item Upgrade', type: 'Weapon',      rarity: '', positionX: 0, positionY: 0, width: 248, height: 378, name:''},
+        {id: 7102, class: 'upgrade', size: 'Small', flip: false, category: 'Item Upgrade', type: 'Weapon',      rarity: '', positionX: 1, positionY: 0, width: 248, height: 378, name:''},
+        {id: 7103, class: 'upgrade', size: 'Small', flip: false, category: 'Item Upgrade', type: 'Weapon',      rarity: '', positionX: 2, positionY: 0, width: 248, height: 378, name:''},
+        {id: 7104, class: 'upgrade', size: 'Small', flip: false, category: 'Item Upgrade', type: 'Weapon',      rarity: '', positionX: 3, positionY: 0, width: 248, height: 378, name:''},
+        {id: 7105, class: 'upgrade', size: 'Small', flip: false, category: 'Item Upgrade', type: 'Armor',       rarity: '', positionX: 4, positionY: 0, width: 248, height: 378, name:''},
+        {id: 7106, class: 'upgrade', size: 'Small', flip: false, category: 'Item Upgrade', type: 'Armor',       rarity: '', positionX: 0, positionY: 1, width: 248, height: 378, name:''},
+        {id: 7107, class: 'upgrade', size: 'Small', flip: false, category: 'Item Upgrade', type: 'Armor',       rarity: '', positionX: 1, positionY: 1, width: 248, height: 378, name:''},
+        {id: 7108, class: 'upgrade', size: 'Small', flip: false, category: 'Item Upgrade', type: 'Armor',       rarity: '', positionX: 2, positionY: 1, width: 248, height: 378, name:''},
+        {id: 7109, class: 'upgrade', size: 'Small', flip: false, category: 'Item Upgrade', type: 'Core',        rarity: '', positionX: 3, positionY: 1, width: 248, height: 378, name:''},
+        {id: 7110, class: 'upgrade', size: 'Small', flip: false, category: 'Item Upgrade', type: 'Core',        rarity: '', positionX: 4, positionY: 1, width: 248, height: 378, name:''},
+        {id: 7111, class: 'upgrade', size: 'Small', flip: false, category: 'Item Upgrade', type: 'Core',        rarity: '', positionX: 0, positionY: 2, width: 248, height: 378, name:''},
+        {id: 7112, class: 'upgrade', size: 'Small', flip: false, category: 'Item Upgrade', type: 'Core',        rarity: '', positionX: 1, positionY: 2, width: 248, height: 378, name:''},
+        {id: 7113, class: 'upgrade', size: 'Small', flip: false, category: 'Item Upgrade', type: 'Universal',   rarity: '', positionX: 2, positionY: 2, width: 248, height: 378, name:''},
+        {id: 7114, class: 'upgrade', size: 'Small', flip: false, category: 'Item Upgrade', type: 'Universal',   rarity: '', positionX: 3, positionY: 2, width: 248, height: 378, name:''},
+        {id: 7115, class: 'upgrade', size: 'Small', flip: false, category: 'Item Upgrade', type: 'Universal',   rarity: '', positionX: 4, positionY: 2, width: 248, height: 378, name:''},
+
+        {id: 8101, class: 'familiar',   size: 'Small',  flip: true, category: 'Familiar',           type: '', rarity: '', positionX: 0, positionY: 0, width: 248, height: 378,  name:''},
+        {id: 8102, class: 'familiar',   size: 'Small',  flip: true, category: 'Familiar',           type: '', rarity: '', positionX: 1, positionY: 0, width: 248, height: 378,  name:''},
+        {id: 8103, class: 'familiar',   size: 'Small',  flip: true, category: 'Familiar',           type: '', rarity: '', positionX: 0, positionY: 1, width: 248, height: 378,  name:''},
+        {id: 8104, class: 'familiar',   size: 'Small',  flip: true, category: 'Familiar',           type: '', rarity: '', positionX: 1, positionY: 1, width: 248, height: 378,  name:''},
+        {id: 8201, class: 'varian',     size: 'Varian', flip: true, category: '',                   type: '', rarity: '', positionX: 0, positionY: 0, width: 413, height: 709, name:''},
+        {id: 8202, class: 'varian',     size: 'Varian', flip: true, category: '',                   type: '', rarity: '', positionX: 1, positionY: 0, width: 413, height: 709, name:''},
+        {id: 8203, class: 'varian',     size: 'Varian', flip: true, category: '',                   type: '', rarity: '', positionX: 0, positionY: 1, width: 413, height: 709, name:''},
+        {id: 8204, class: 'varian',     size: 'Varian', flip: true, category: '',                   type: '', rarity: '', positionX: 1, positionY: 1, width: 413, height: 709, name:''},
+        {id: 8301, class: 'tarot',      size: 'Tarot',  flip: true, category: 'Quick Reference',    type: '', rarity: '', positionX: 0, positionY: 0, width: 449, height: 744, name:''},
+        {id: 8302, class: 'tarot',      size: 'Tarot',  flip: true, category: 'Exalted Esper',      type: '', rarity: '', positionX: 1, positionY: 0, width: 449, height: 744, name:''},
+        {id: 8303, class: 'tarot',      size: 'Tarot',  flip: true, category: 'Exalted Esper',      type: '', rarity: '', positionX: 2, positionY: 0, width: 449, height: 744, name:''},
+        {id: 8304, class: 'tarot',      size: 'Tarot',  flip: true, category: 'Exalted Esper',      type: '', rarity: '', positionX: 3, positionY: 0, width: 449, height: 744, name:''},
+        {id: 8305, class: 'tarot',      size: 'Tarot',  flip: true, category: 'Exalted Esper',      type: '', rarity: '', positionX: 4, positionY: 0, width: 449, height: 744, name:''},
+        {id: 8306, class: 'tarot',      size: 'Tarot',  flip: true, category: 'Abraxis',            type: '', rarity: '', positionX: 0, positionY: 1, width: 449, height: 744, name:''},
+        {id: 8307, class: 'tarot',      size: 'Tarot',  flip: true, category: 'Abraxis',            type: '', rarity: '', positionX: 1, positionY: 1, width: 449, height: 744, name:''},
+        {id: 8308, class: 'tarot',      size: 'Tarot',  flip: true, category: 'Abraxis',            type: '', rarity: '', positionX: 2, positionY: 1, width: 449, height: 744, name:''},
+        {id: 8309, class: 'tarot',      size: 'Tarot',  flip: true, category: 'Abraxis',            type: '', rarity: '', positionX: 3, positionY: 1, width: 449, height: 744, name:''},
+
+    ];
+</script>
+</html>
+
